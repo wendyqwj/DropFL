@@ -1,0 +1,16 @@
+#!/bin/bash
+cd ~/federated-learning
+# case cnn cifar10
+nohup python main_fed.py --num_users 50 --frac 0.1 --alpha 0.3 --delta 0.5 --P 0.1 --gpu 0 --model cnn --dataset cifar --MAX_WORKERS 4 > 0.out &
+
+# caseX
+nohup python main_fed.py --num_users 100 --frac 0.3 --alpha 0.5 --delta 0.5 --P 1 --gpu 2 --model mlp --dataset mnist --MAX_WORKERS 9 > 2.out &
+
+# case cifar100
+nohup python main_fed.py --num_users 300 --frac 0.1 --alpha 0.3 --delta 0.5 --P 0.8 --gpu 2 --model cnn --dataset cifar100 --MAX_WORKERS 6 > 2.out &
+nohup python main_fed.py --num_users 200 --frac 0.1 --alpha 0.3 --delta 0.5 --P 1.0 --gpu 2 --model cnn --dataset cifar100 --MAX_WORKERS 3 > 2.out &
+
+nohup python main_fed.py --num_users 200 --frac 0.1 --alpha 0.3 --delta 0.5 --P 0.3 --gpu 1 --model cnn --dataset cifar100 --MAX_WORKERS 6 > 1.out &
+
+# case krum
+nohup python main_fed.py --num_users 50 --frac 0.1 --alpha 0.3 --delta 0.5 --P 0.1 --gpu 2 --model cnn --dataset cifar --MAX_WORKERS 13 > 2.out &
