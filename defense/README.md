@@ -1,4 +1,5 @@
 Defenses
-A.1 Abnormal detection
+A.1 Abnormal detection:
 We assume that the server is trusted and propose a statistical-based outlier detection method to flag clients that may be compromised by an attacker. Specifically, the server maintains a list of the health values of all clients in each communication round, which can be represented by the online rate. The ideal value of the online rate of each client is equal to the fraction of clients selected by the server C in federated learning. The key idea is to rank all clients according to their online rate value and flag the clients with the lowest values, which may be the compromised clients.
 ![fig_detection_00](https://github.com/wendyqwj/DropFL/assets/105483021/8bcec20d-d306-4150-8bd7-a2f7e0dc6bf7)
+Evaluation results: We set the fraction of compromised clients to 30%. Fig. 7(a) shows that the detection rate of compromised clients increases as the fraction of inspected clients increases. Our proposed method has the best detection performance in the full dropout attack, the second in the SV-based dropout, and the worst in the random dropout. For instance, when the fraction of inspected clients is 20%, that is the last 20% of clients in the list of online rate, the detection rate of compromised clients exceeds 90% in the full dropout attack.
